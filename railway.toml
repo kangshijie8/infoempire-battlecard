@@ -1,0 +1,16 @@
+[build]
+builder = "NIXPACKS"
+builderVersion = "2024-10-23.234748"
+
+[deploy]
+startCommand = "python serve_intel_dashboard.py --port $PORT"
+healthCheckType = "http"
+healthCheckPath = "/api/intel/health"
+restartPolicyType = "ON_FAILURE"
+restartPolicyRetries = 3
+
+[deploy.env]
+PORT = "8080"
+
+[processes]
+web = "python serve_intel_dashboard.py --port $PORT"

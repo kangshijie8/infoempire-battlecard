@@ -1,6 +1,6 @@
 # InfoEmpire Battlecard - 部署指南
 
-**更新时间**：2026-03-26 10:30
+**更新时间**：2026-03-26 12:07
 
 ## 当前状态
 
@@ -16,7 +16,44 @@
 
 ---
 
-## 快速部署到 Render（免费）
+---
+
+## ⚡ 方案A：Railway（推荐，不要信用卡）
+
+Railway免费试用$5额度，不用信用卡，够用1个月。
+
+### 步骤：
+
+1. 打开 👉 **https://railway.app** → 用GitHub账号登录
+2. Dashboard点 **"New Project"** → **"Deploy from GitHub repo"**
+3. 选择仓库：`kangshijie8/infoempire-battlecard`
+4. Railway会自动检测Python，配置：
+   - **Start Command**: `python serve_intel_dashboard.py --port $PORT`
+   - **Health Check Path**: `/api/intel/health`
+5. 点 **"Add Variables"** 添加环境变量：
+   - `MINIMAX_API_KEY` = `sk-cp-u41neK4opNpopBFRmhuHKAdQ2QpSj3dW5ziFrSJcyztEAGFQjm3RHRNaguRkLVo31oeBTT-DuxXF7AtIF4d2E65Pvyog1izC_i18dRSUrk013XSRC8K9sZY`
+   - `MINIMAX_BASE_URL` = `https://api.minimaxi.com/anthropic/v1`
+   - `MINIMAX_MODEL` = `MiniMax-M2.7`
+6. Railway自动部署，完成后给你URL
+
+> 💡 提示：Railway默认新加坡节点，延迟低
+
+---
+
+## 方案B：Render（免费，需信用卡）
+
+⚠️ Render免费版需要绑定信用卡（美国平台惯例）
+
+1. 打开 👉 **https://dashboard.render.com** → 连接GitHub
+2. 选择仓库：`kangshijie8/infoempire-battlecard`
+3. 创建Web Service：
+   - **Name**: `infoempire-battlecard`
+   - **Region**: Singapore
+   - **Build Command**: `pip install -r requirements.txt`
+   - **Start Command**: `python serve_intel_dashboard.py --port $PORT`
+   - **Plan**: Free
+4. 添加环境变量（同上）
+5. Create → 等待部署
 
 ### 第一步：创建GitHub仓库（2分钟）
 
