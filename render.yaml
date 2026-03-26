@@ -7,8 +7,8 @@ services:
     env: python
     region: singapore
     plan: free
-    buildCommand: pip install httpx aiohttp
-    startCommand: python serve_dashboard.py --port $PORT
+    buildCommand: pip install -r requirements.txt
+    startCommand: python serve_intel_dashboard.py --port $PORT
     healthCheckPath: /api/intel/health
     envVars:
       - key: MINIMAX_API_KEY
