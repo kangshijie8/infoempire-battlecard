@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.coverage.*
+*.cover
+
+# Linting
+.ruff_cache/
+
+# Environment
+.env
+.env.*
+
+# Logs & Debug
+*.log
+debug.log
+daemon.log
+nul
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Browser profiles
+browser_profile/
+chrome_profile/
+
+# Temp files
+tunnel_url.txt
+*.tmp
+temp/
+
+# Node (if any)
+node_modules/
+
+# Cache directories
+*/__pycache__/
+*/*/__pycache__/
+*/*/*/__pycache__/

@@ -1,0 +1,19 @@
+# render.yaml - Render部署配置
+# 使用方式：创建GitHub repo → 连接Render → 自动部署
+
+services:
+  - type: web
+    name: infoempire-battlecard
+    env: python
+    region: singapore
+    plan: free
+    buildCommand: pip install httpx aiohttp
+    startCommand: python serve_dashboard.py --port $PORT
+    healthCheckPath: /api/intel/health
+    envVars:
+      - key: MINIMAX_API_KEY
+        sync: false
+      - key: MINIMAX_BASE_URL
+        value: https://api.minimaxi.com/anthropic/v1
+      - key: MINIMAX_MODEL
+        value: MiniMax-M2.7
