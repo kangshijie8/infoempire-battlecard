@@ -53,7 +53,7 @@ aiofiles
    - **Region**: Singapore
    - **Runtime**: Python
    - **Build Command**: `pip install -r requirements.txt`
-   - **Start Command**: `python serve_dashboard.py`（如果用async_api_server.py则改为 `python async_api_server.py`）
+   - **Start Command**: `python serve_intel_dashboard.py --port $PORT`
    - **Plan**: Free
 5. 点 **Create**
 
